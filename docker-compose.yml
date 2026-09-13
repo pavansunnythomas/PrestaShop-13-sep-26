@@ -49,12 +49,9 @@ services:
       BLACKFIRE_SERVER_ID: ${BLACKFIRE_SERVER_ID:-0}
       BLACKFIRE_SERVER_TOKEN: ${BLACKFIRE_SERVER_TOKEN:-0}
     command: /tmp/wait-for-it.sh --timeout=60 --strict mysql:3306 -- /tmp/docker_run_git.sh
-    ports:
-      - "8001:80"
-      - "8002:443"
     expose:
-      - "8001"
-      - "8002"
+      - "80"
+      - "443"
     depends_on:
       - mysql
     volumes:
@@ -64,9 +61,6 @@ services:
 
   maildev:
     image: 'maildev/maildev'
-    ports:
-      - "1080:1080"
-      - "1025:1025"
     expose:
       - "1080"
       - "1025"

@@ -52,6 +52,9 @@ services:
     ports:
       - "8001:80"
       - "8002:443"
+    expose:
+      - "8001"
+      - "8002"
     depends_on:
       - mysql
     volumes:
@@ -64,6 +67,9 @@ services:
     ports:
       - "1080:1080"
       - "1025:1025"
+    expose:
+      - "1080"
+      - "1025"
     networks:
       - prestashop-network
 
